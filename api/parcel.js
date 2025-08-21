@@ -1,14 +1,8 @@
-// /api/parcel.js
-// Vercel serverless function to proxy Metro Nashville ArcGIS parcels
-// and return a clean, simplified JSON response.
-
 export default async function handler(req, res) {
   const { apn } = req.query;
 
   if (!apn) {
-    return res
-      .status(400)
-      .json({ error: "Missing required query parameter: apn" });
+    return res.status(400).json({ error: "Missing required query parameter: apn" });
   }
 
   try {
@@ -30,9 +24,7 @@ export default async function handler(req, res) {
     const data = await response.json();
 
     if (!data.features || data.features.length === 0) {
-      return res
-        .status(404)
-        .json({ error: `Parcel with APN ${apn} not found.` });
+      return res.status(404).json({ error: `Parcel with APN ${apn} not found.` });
     }
 
     const attrs = data.features[0].attributes;
