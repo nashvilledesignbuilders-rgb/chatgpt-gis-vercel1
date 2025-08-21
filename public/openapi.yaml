@@ -1,0 +1,59 @@
+openapi: 3.0.1
+info:
+  title: Nashville Parcel API
+  description: API to look up parcel information by APN/PIN from Metro Nashville ArcGIS.
+  version: 1.2.0
+servers:
+  - url: https://chatgpt-gis-vercel.vercel.app
+paths:
+  /api/parcel:
+    get:
+      summary: Get parcel data by APN/PIN
+      description: Returns parcel information for a given Assessor’s Parcel Number (APN) or PIN.
+      parameters:
+        - name: apn
+          in: query
+          required: true
+          description: The Assessor’s Parcel Number (PIN) to look up.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Parcel data successfully retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  apn:
+                    type: string
+                    example: "09415007500"
+                  owner:
+                    type: string
+                    example: "SMITH JOHN & JANE"
+                  address:
+                    type: string
+                    example: "123 MAIN ST"
+                  acreage:
+                    type: number
+                    format: float
+                    example: 0.85
+                  land_use:
+                    type: string
+                    example: "RESIDENTIAL"
+                  zoning:
+                    type: string
+                    example: "RS10"
+                  mailing_address:
+                    type: string
+                    example: "PO BOX 123"
+                  city:
+                    type: string
+                    example: "NASHVILLE"
+                  zip:
+                    type: string
+                    example: "37206"
+        '400':
+          description: Missing or invalid APN parameter
+        '404':
+          description: Parcel not found
