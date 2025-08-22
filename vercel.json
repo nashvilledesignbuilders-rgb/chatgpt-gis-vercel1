@@ -1,18 +1,10 @@
 {
   "version": 2,
-  "rewrites": [
+  "public": true,
+  "routes": [
     {
-      "source": "/.well-known/ai-plugin.json",
-      "destination": "/.well-known/ai-plugin.json"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/.well-known/ai-plugin.json",
-      "headers": [
-        { "key": "Content-Type", "value": "application/json" },
-        { "key": "Cache-Control", "value": "no-cache" }
-      ]
+      "src": "/\\.well-known/(.*)",
+      "dest": "/public/.well-known/$1"
     }
   ]
 }
