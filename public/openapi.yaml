@@ -4,7 +4,7 @@ info:
   description: API to look up parcel information by APN/PIN from Metro Nashville ArcGIS.
   version: 1.2.0
 servers:
-  - url: https://chatgpt-gis-vercel.vercel.app
+  - url: https://chatgpt-gis-vercel1.vercel.app
 paths:
   /api/parcel:
     get:
