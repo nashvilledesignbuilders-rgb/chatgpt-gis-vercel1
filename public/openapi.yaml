@@ -1,25 +1,25 @@
 openapi: 3.0.1
 info:
   title: Nashville Parcel API
-  description: API to look up parcel information by APN/PIN from Metro Nashville ArcGIS.
-  version: 1.2.0
+  description: API for looking up Metro Nashville parcel information by APN.
+  version: "1.0.0"
 servers:
   - url: https://chatgpt-gis-vercel1.vercel.app
 paths:
   /api/parcel:
     get:
-      summary: Get parcel data by APN/PIN
-      description: Returns parcel information for a given Assessor’s Parcel Number (APN) or PIN.
+      operationId: getParcel
+      summary: Look up a parcel by APN
       parameters:
-        - name: apn
-          in: query
-          required: true
-          description: The Assessor’s Parcel Number (PIN) to look up.
+        - in: query
+          name: apn
           schema:
             type: string
+          required: true
+          description: Assessor’s Parcel Number (APN)
       responses:
-        '200':
-          description: Parcel data successfully retrieved
+        "200":
+          description: Successful parcel lookup
           content:
             application/json:
               schema:
@@ -27,33 +27,35 @@ paths:
                 properties:
                   apn:
                     type: string
-                    example: "09415007500"
                   owner:
                     type: string
-                    example: "SMITH JOHN & JANE"
                   address:
                     type: string
-                    example: "123 MAIN ST"
                   acreage:
                     type: number
-                    format: float
-                    example: 0.85
                   land_use:
                     type: string
-                    example: "RESIDENTIAL"
                   zoning:
                     type: string
-                    example: "RS10"
                   mailing_address:
                     type: string
-                    example: "PO BOX 123"
                   city:
                     type: string
-                    example: "NASHVILLE"
                   zip:
                     type: string
-                    example: "37206"
-        '400':
-          description: Missing or invalid APN parameter
-        '404':
-          description: Parcel not found
+  /api/hello:
+    get:
+      operationId: hello
+      summary: Health check endpoint
+      responses:
+        "200":
+          description: Returns hello message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
