@@ -1,0 +1,27 @@
+# Node.js dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+.vercel
+.output
+dist
+.next
+out
+
+# Env files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+
+# ✅ Allow plugin manifest
+!public/.well-known/
+!public/.well-known/ai-plugin.json
