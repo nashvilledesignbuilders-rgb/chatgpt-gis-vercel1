@@ -1,9 +1,9 @@
 {
   "schema_version": "v1",
-  "name_for_human": "Nashville Parcel Lookup",
-  "name_for_model": "nashville_parcel_api",
-  "description_for_human": "Look up Nashville parcel info by APN/PIN. Returns owner, address, acreage, land use, zoning, and mailing address.",
-  "description_for_model": "Plugin for querying Nashville parcel data by Assessor’s Parcel Number (APN). Returns owner, address, acreage, land use, zoning, mailing address, city, and zip.",
+  "name_for_human": "Nashville GIS Parcels",
+  "name_for_model": "nashville_gis_parcels",
+  "description_for_human": "Retrieve and explore property parcel data in Nashville and Tennessee.",
+  "description_for_model": "Plugin to retrieve property parcel information from Metro Nashville and Tennessee property services. Supports queries by APN, PIN, and geometry. Returns concise summaries of parcel details.",
   "auth": {
     "type": "none"
   },
@@ -12,7 +12,6 @@
     "url": "https://chatgpt-gis-vercel1.vercel.app/openapi.yaml"
   },
   "logo_url": "https://chatgpt-gis-vercel1.vercel.app/logo.png",
-  "contact_email": "you@example.com",
+  "contact_email": "support@example.com",
   "legal_info_url": "https://chatgpt-gis-vercel1.vercel.app/legal.html"
 }
-
