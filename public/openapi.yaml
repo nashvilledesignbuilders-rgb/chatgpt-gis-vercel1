@@ -1,25 +1,44 @@
 openapi: 3.0.1
 info:
-  title: Nashville Parcel API
-  description: API for looking up Metro Nashville parcel information by APN.
+  title: Nashville GIS Parcels API
+  description: API for retrieving parcel data in Nashville and Tennessee.
   version: "1.0.0"
+
 servers:
   - url: https://chatgpt-gis-vercel1.vercel.app
+
 paths:
+  /api/hello:
+    get:
+      summary: Hello endpoint test
+      operationId: getHello
+      responses:
+        '200':
+          description: Returns a simple hello message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+
   /api/parcel:
     get:
+      summary: Get parcel details by APN
       operationId: getParcel
-      summary: Look up a parcel by APN
       parameters:
         - in: query
           name: apn
           schema:
             type: string
           required: true
-          description: Assessor’s Parcel Number (APN) to look up
+          description: Assessor's Parcel Number
       responses:
-        "200":
-          description: Successful parcel lookup
+        '200':
+          description: Parcel details response
           content:
             application/json:
               schema:
@@ -33,31 +52,3 @@ paths:
                     type: string
                   acreage:
                     type: number
-                  land_use:
-                    type: string
-                  zoning:
-                    type: string
-                  mailing_address:
-                    type: string
-                  city:
-                    type: string
-                  zip:
-                    type: string
-        "404":
-          description: Parcel not found
-  /api/hello:
-    get:
-      operationId: hello
-      summary: Health check endpoint
-      responses:
-        "200":
-          description: Returns hello message
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  status:
-                    type: string
-                  message:
-                    type: string
