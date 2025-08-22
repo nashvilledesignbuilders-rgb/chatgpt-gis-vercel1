@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/.well-known/ai-plugin.json",
-      "destination": "/_well-known/ai-plugin.json"
+      "destination": "/.well-known/ai-plugin.json"
     }
   ],
   "headers": [
