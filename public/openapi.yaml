@@ -16,7 +16,7 @@ paths:
           schema:
             type: string
           required: true
-          description: Assessor’s Parcel Number (APN)
+          description: Assessor’s Parcel Number (APN) to look up
       responses:
         "200":
           description: Successful parcel lookup
@@ -43,6 +43,8 @@ paths:
                     type: string
                   zip:
                     type: string
+        "404":
+          description: Parcel not found
   /api/hello:
     get:
       operationId: hello
